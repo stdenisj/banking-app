@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_extensions',
-    'banking_app'
+    'banking_app',
+    'django_heroku',
 ]
 
 MIDDLEWARE = [
