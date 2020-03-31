@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_extensions',
     'banking_app',
-    'django_heroku',
 ]
 
 MIDDLEWARE = [
@@ -87,7 +86,7 @@ DATABASES = {
     }
 }
 
-# REST_FRAMEWORK = {
+REST_FRAMEWORK = {
 #     # Use Django's standard `django.contrib.auth` permissions,
 #     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
