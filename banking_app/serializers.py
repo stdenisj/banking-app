@@ -9,7 +9,7 @@ from .models import Account, Transaction
 #     )
 #     class Meta:
 #         model = Account
-#         fields = ('id', 'title', 'balance', 'transactions')
+#         fields = ('id', 'title', 'balance', 'transactions', 'user')
 
 # class TransactionSerializer(serializers.HyperlinkedModelSerializer):
 #     account = serializers.HyperlinkedRelatedField(
