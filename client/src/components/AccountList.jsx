@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import AccountListItem from './AccountListItem'
 
 export default class AccountList extends Component {
     state = {
@@ -24,7 +25,14 @@ export default class AccountList extends Component {
     render() {
         return (
             <div>
-                <h1>hello</h1>
+                <h1> List of Accounts </h1>
+                <ul>
+                    {
+                        this.state.accounts.map( (account, index) => {
+                            return <AccountListItem account={ account } key={ index } />
+                        })
+                    }
+                </ul>
             </div>
         )
     }
