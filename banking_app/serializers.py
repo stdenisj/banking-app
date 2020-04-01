@@ -31,4 +31,4 @@ class AccountSerializer(serializers.ModelSerializer):
     transactions = TransactionSerializer(many=True, read_only=True)
     class Meta:
         model = Account
-        fields = ('id', 'title', 'balance', 'transactions' 'user')
+        fields = ('id', 'title', 'balance', 'transactions', 'user')
