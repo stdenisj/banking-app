@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from .serializers import UserSerializer, TokenSerializer
 from .models import AccountHolder
 from django.contrib.auth import authenticate, login
+from rest_framework.permissions import AllowAny
 
 # JWT settings
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -17,7 +18,7 @@ class LoginView(generics.ListCreateAPIView):
     # This permission class will overide the global permission class setting
     # Permission checks are always run at the very start of the view, before any other code is allowed to proceed.
     # The permission class here is set to AllowAny, which overwrites the global class to allow anyone to have access to login.
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = [AllowAny]
     serializer_class = UserSerializer
     queryset = AccountHolder.objects.all()
 
@@ -45,7 +46,7 @@ class RegisterUsersView(generics.ListCreateAPIView):
     """
     POST user/signup/
     """
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = [AllowAny]
     serializer_class = UserSerializer
     queryset = AccountHolder.objects.all()
 
