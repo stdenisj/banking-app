@@ -19,6 +19,7 @@ export default class LoginForm extends Component {
         try {
             const res = await axios.post('/user/login/', this.state.userForm);
             console.log(res);
+            this.props.getToken(res.data.token);
             this.setState({ currentUser: res.data, isRedirect: true});
         }
         catch (error) {
@@ -45,10 +46,10 @@ export default class LoginForm extends Component {
     render() {
         return (
             <Container id="LoginPage">
-            {/* { this.state.isRedirect
-                ? <Redirect to='/' user={this.state.currentUser}/>
+            { this.state.isRedirect
+                ? <Redirect to='/accounts' user={this.state.currentUser}/>
                 : null
-                } */}
+                }
                 
                 <Form className='LoginForm' onSubmit={ this.state.isAddUesr ? this.addNewUser : this.loginUser }>
                     <Form.Group>

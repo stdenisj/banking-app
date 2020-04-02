@@ -7,6 +7,8 @@ export default class AccountList extends Component {
         accounts: [],
     }
 
+    
+
 
     componentDidMount(){
         this.fetchAccounts();
@@ -14,7 +16,8 @@ export default class AccountList extends Component {
 
     fetchAccounts = async() => {
         try {
-            const res = await axios.get('/api/v1/accounts/', this.props.token);
+            const res = await axios.get('/api/v1/accounts/', { headers: { "Authorization" : `Bearer ${this.props.token}`}});
+            console.log(res)
             this.setState({ accounts: res.data })
         }
         catch (error) {
