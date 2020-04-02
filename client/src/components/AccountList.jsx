@@ -12,10 +12,16 @@ export default class AccountList extends Component {
 
 
     componentDidMount(){
-        this.fetchAccounts();
+        this.fetchUser();
     }
 
-    fetchAccounts = async() => {
+    // fetchAccounts = async() => {
+    //     try {
+    //         const res = await axios.get()
+    //     }
+    // }
+
+    fetchUser = async() => {
         try {
             const res = await axios.get('/api/v1/users/' + this.props.user +'/', { headers: { "Authorization" : `Bearer ${this.props.token}`}});
             console.log(res)

@@ -6,6 +6,8 @@ from .serializers import UserSerializer, TokenSerializer
 from .models import AccountHolder
 from django.contrib.auth import authenticate, login
 from rest_framework.permissions import AllowAny
+from django.contrib.auth.models import User, Group, PermissionsMixin
+
 
 # JWT settings
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -65,4 +67,6 @@ class RegisterUsersView(generics.ListCreateAPIView):
         new_user = AccountHolder.objects.create_user(
             username=username, password=password, email=email
         )
+        my_group = Group.objects.get(name='AccountHolder')
+        my_group.user_set.add(new_user)
         return Response(status=status.HTTP_201_CREATED)
