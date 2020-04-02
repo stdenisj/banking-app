@@ -19,8 +19,8 @@ export default class LoginForm extends Component {
         try {
             const res = await axios.post('/user/login/', this.state.userForm);
             console.log(res);
-            this.props.getToken(res.data.token);
-            this.setState({ currentUser: res.data, isRedirect: true});
+            this.props.getToken(res.data);
+            this.setState({ isRedirect: true });
         }
         catch (error) {
             console.log(error);

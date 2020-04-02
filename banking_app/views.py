@@ -5,7 +5,7 @@ from .models import Account, Transaction
 from accounts.models import AccountHolder
 from accounts.serializers import UserSerializer
 from rest_framework_simplejwt import authentication
-# from accounts.models import AccountHolder
+from accounts.models import AccountHolder
 
 class AccountView(viewsets.ModelViewSet):
     queryset = Account.objects.all()

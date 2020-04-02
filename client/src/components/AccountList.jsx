@@ -5,6 +5,7 @@ import AccountListItem from './AccountListItem'
 export default class AccountList extends Component {
     state = {
         accounts: [],
+        user: {}
     }
 
     
@@ -16,9 +17,9 @@ export default class AccountList extends Component {
 
     fetchAccounts = async() => {
         try {
-            const res = await axios.get('/api/v1/accounts/', { headers: { "Authorization" : `Bearer ${this.props.token}`}});
+            const res = await axios.get('/api/v1/users/' + this.props.user +'/', { headers: { "Authorization" : `Bearer ${this.props.token}`}});
             console.log(res)
-            this.setState({ accounts: res.data })
+            this.setState({ user: res.data })
         }
         catch (error) {
             console.log(error);

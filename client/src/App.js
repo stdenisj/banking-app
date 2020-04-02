@@ -6,15 +6,16 @@ import LoginForm from './components/LoginForm'
 
 export default class App extends Component {
   state = {
-    token: {}
+    token: {},
+    user: {}
   }
 
   getToken = (response) => {
-    this.setState({ token: response })
+    this.setState({ token: response.token, user: response.user })
   }
 
   render() {
-    const AccountListComponent = () => (<AccountList token={ this.state.token }/>)
+    const AccountListComponent = () => (<AccountList token={ this.state.token } user={ this.state.user }/>)
     const LoginFormComponent = () => (<LoginForm  getToken={ this.getToken }/>)
 
     return (
