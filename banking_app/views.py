@@ -3,7 +3,7 @@ from rest_framework import viewsets
 from .serializers import AccountSerializer, TransactionSerializer
 from .models import Account, Transaction
 from accounts.models import AccountHolder
-from accounts.serializers import UserSerializer
+from accounts.serializers import ReturnUserSerializer
 from rest_framework_simplejwt import authentication
 from accounts.models import AccountHolder
 
@@ -19,5 +19,8 @@ class TransactionView(viewsets.ModelViewSet):
     serializer_class = TransactionSerializer
 
 class UserView(viewsets.ModelViewSet):
-    queryset = AccountHolder.objects.all()
-    serializer_class = UserSerializer
+    # queryset = AccountHolder.objects.all()
+    serializer_class = ReturnUserSerializer
+    
+    def get_queryset(self):
+        return AccountHolder.objects.filter(id=self.request.user.id)

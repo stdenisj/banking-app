@@ -18,7 +18,7 @@ export default class AccountList extends Component {
     
     fetchUser = async() => {
         try {
-            const res = await axios.get('/api/v1/users/' + this.props.user +'/', { headers: { "Authorization" : `Bearer ${this.props.token}`}});
+            const res = await axios.get('/api/v1/users/', { headers: { "Authorization" : `Bearer ${this.props.token}`}});
             console.log(res)
             this.setState({ user: res.data })
         }

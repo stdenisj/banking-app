@@ -9,6 +9,13 @@ class UserSerializer(serializers.ModelSerializer):
         
         fields = ('id', 'username', 'password','email', 'accounts')
         
+class ReturnUserSerializer(serializers.ModelSerializer):
+        
+    class Meta:
+        model = AccountHolder
+        
+        fields = ('id', 'username','email', 'accounts')
+        
 
 class TokenSerializer(serializers.Serializer):
     token = serializers.CharField(max_length=255)

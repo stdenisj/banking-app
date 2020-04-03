@@ -24,6 +24,8 @@ class LoginView(generics.ListCreateAPIView):
     serializer_class = UserSerializer
     queryset = AccountHolder.objects.all()
 
+    def get(self, request, *args, **kwargs):
+        return Response(status=status.HTTP_401_UNAUTHORIZED)
 
     def post(self, request, *args, **kwargs):
         username = request.data.get("username", "")
@@ -52,6 +54,11 @@ class RegisterUsersView(generics.ListCreateAPIView):
     permission_classes = [AllowAny]
     serializer_class = UserSerializer
     queryset = AccountHolder.objects.all()
+
+
+    def get(self, request, *args, **kwargs):
+        return Response(status=status.HTTP_401_UNAUTHORIZED)
+
 
     def post(self, request, *args, **kwargs):
         username = request.data.get("username", "")
