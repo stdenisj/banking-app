@@ -7,14 +7,14 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = AccountHolder
         
-        fields = ('id', 'username', 'password','email', 'accounts')
+        fields = ('id', 'username', 'password', 'email', 'accounts')
         
 class ReturnUserSerializer(serializers.ModelSerializer):
         
     class Meta:
         model = AccountHolder
         
-        fields = ('id', 'username','email', 'accounts')
+        fields = ('id', 'username', 'email', 'accounts')
         
 
 class TokenSerializer(serializers.Serializer):

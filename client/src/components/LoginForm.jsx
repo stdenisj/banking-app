@@ -27,6 +27,17 @@ export default class LoginForm extends Component {
         }
     }
 
+    addNewUser = async(event) => {
+        try {
+            const res = await axios.post('/user/signup/', this.state.userForm);
+            console.log(res);
+            this.loginUser(event)
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
     inputChange = (event) => {
         const changedInput = event.target.name;
         const updatedUserForm = { ...this.state.userForm };
@@ -47,7 +58,7 @@ export default class LoginForm extends Component {
         return (
             <Container id="LoginPage">
             { this.state.isRedirect
-                ? <Redirect to='/accounts' user={this.state.currentUser}/>
+                ? <Redirect to='/account' user={this.state.currentUser}/>
                 : null
                 }
                 
@@ -58,14 +69,6 @@ export default class LoginForm extends Component {
                     <Form.Group>
                         <Form.Control type='password' name='password' onChange={ this.inputChange} placeholder='Enter Password' />
                     </Form.Group>
-                    {this.state.isAddUesr
-                    ? <Form.Group>
-                        <Form.Control type='text' name='name' onChange={ this.inputChange} placeholder='Enter Your Name'/>
-                    </Form.Group> 
-                    : null
-                    }
-
-
                     <Button variant="success" type='submit'>
                         { this.state.isAddUesr
                             ? 'Create User'

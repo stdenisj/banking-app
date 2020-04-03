@@ -1,14 +1,56 @@
 import React, { Component } from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
+import UserInfo from './UserInfo'
+import AccountList from './AccountList'
+import axios from 'axios'
 
 export default class AccountHolderView extends Component {
+    state = {
+        accounts: [],
+        user: {}
+    }
+
+    componentDidMount(){
+        this.fetchUser();
+        this.fetchAccounts();
+    }
     
-
-
+    fetchUser = async() => {
+        try {
+            const res = await axios.get('/api/v1/users/', { headers: { "Authorization" : `Bearer ${this.props.token}`}});
+            console.log(res)
+            this.setState({ user: res.data[0] })
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+    
+        fetchAccounts = async() => {
+            try {
+                const res = await axios.get('/api/v1/accounts/', { headers: { "Authorization" : `Bearer ${this.props.token}`}});
+                this.setState({ accounts: res.data})
+            }
+            catch (error) {
+                console.log(error)
+            }
+        }
+    
+    
     render() {
         return (
-            <div>
-                
-            </div>
+            <Container fluid>
+                <Row>
+                    <Col>
+                        <UserInfo user={ this.state.user }/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <AccountList accounts={ this.state.accounts }/>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 }
