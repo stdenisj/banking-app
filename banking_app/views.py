@@ -8,8 +8,11 @@ from rest_framework_simplejwt import authentication
 from accounts.models import AccountHolder
 
 class AccountView(viewsets.ModelViewSet):
-    queryset = Account.objects.all()
+    # queryset = Account.objects.all()
     serializer_class = AccountSerializer
+
+    def get_queryset(self):
+        return self.request.user.accounts.all()
 
 class TransactionView(viewsets.ModelViewSet):
     queryset = Transaction.objects.all()
