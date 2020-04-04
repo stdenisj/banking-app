@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
-import { Container } from 'react-bootstrap'
+import { Container, Accordion, Card } from 'react-bootstrap'
 import TransactionDetails from './TransactionDetails'
+import TransactionForm from './TransactionForm'
 
 
 export default class AccountListItem extends Component {
@@ -15,16 +16,40 @@ export default class AccountListItem extends Component {
     }
 
     render() {
+        const { id, title, user, transactions, balance} = this.props.account
         return (
-            <Container fluid>
-                <h1 onClick={ this.toggleTransactions }>{ this.props.account.title }</h1>
-                { this.state.transactions
-                    ? this.props.account.transactions.map( (transaction, index) => {
+            // <Container fluid>
+            //     <h1 onClick={ this.toggleTransactions }>{ this.props.account.title }</h1>
+            //     { this.state.transactions
+            //         ? <Container fluid>
+            //             { this.props.account.transactions.map( (transaction, index) => {
+            //                 return <TransactionDetails transaction={ transaction } key={ index } />
+            //             })
+            //             }
+            //                 <TransactionForm userId={ this.props.account.user } accountId={ this.props.account.id } token={ this.props.token } />
+            //             </Container>
+            //         : null
+            //     }
+            // </Container> 
+
+            <Card>
+            <Accordion.Toggle as={Card.Header} eventKey={ id }>
+            { title }
+            <span>
+                Balance: ${ balance }
+            </span>
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey={ id }>
+                <Card.Body>
+                { transactions.map( (transaction, index) => {
                         return <TransactionDetails transaction={ transaction } key={ index } />
                     })
-                    : null
                 }
-            </Container> 
+                    <br/>
+                    <TransactionForm userId={ user } accountId={ id } token={ this.props.token } />
+                </Card.Body>
+            </Accordion.Collapse>
+            </Card>
         )
     }
 }

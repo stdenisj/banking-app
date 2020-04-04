@@ -72,14 +72,15 @@ export default class LoginForm extends Component {
                     <Form.Group>
                         <Form.Control type='password' name='password' onChange={ this.inputChange} placeholder='Enter Password' />
                     </Form.Group>
-                    <Button variant="success" type='submit'>
+                    <Button type='submit'>
                         { this.state.isAddUesr
                             ? 'Create User'
                             : 'Log In' 
                         }
                     </Button>
                 </Form>
-                <Button  variant="success" onClick={ this.toggleNewUserForm }>
+                <br/>
+                <Button onClick={ this.toggleNewUserForm }>
                     {this.state.isAddUesr
                     ?'Cancel'
                     :'Create Account'

@@ -33,6 +33,11 @@ class Account(models.Model):
             return 'Invalid input'
 
 class Transaction(models.Model):
+    class Action(models.IntegerChoices):
+        Withdraw = 1
+        Deposit = 2
+
+    action = models.IntegerField(choices=Action.choices, null=True)
     description = models.CharField(max_length=200)
     amount = models.PositiveIntegerField()
     account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='transactions')

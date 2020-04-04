@@ -24,7 +24,7 @@ from .models import Account, Transaction
 class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
-        fields = ('id', 'description', 'amount', 'account', 'date')
+        fields = ('id', 'action', 'description', 'amount', 'account', 'date')
 
 
 class AccountSerializer(serializers.ModelSerializer):

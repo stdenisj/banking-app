@@ -49,13 +49,14 @@ export default class AccountForm extends Component {
                     <Form.Group>
                         <Form.Control type='text' name='title' onChange={ this.inputChange} placeholder='Enter Account Name'/>
                     </Form.Group>            
-                    <Button variant="success" type='submit'>
+                    <Button type='submit'>
                         Create Account
                     </Button>
                 </Form>
             : null
             }
-                <Button  variant="success" onClick={ this.toggleNewAccountForm }>
+                <br/>
+                <Button onClick={ this.toggleNewAccountForm }>
                     {this.state.isAddAccount
                     ?'Cancel'
                     :'Create Account'

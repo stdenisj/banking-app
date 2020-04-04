@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Accordion, Card, Button } from 'react-bootstrap'
 import UserInfo from './UserInfo'
 import AccountList from './AccountList'
 import axios from 'axios'
@@ -48,12 +48,12 @@ export default class AccountHolderView extends Component {
                 </Row>
                 <Row>
                     <Col>
-                        <AccountList accounts={ this.state.accounts }/>
+                        <AccountList accounts={ this.state.accounts } token={ this.props.token }/>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <AccountForm token={ this.props.token } userId={ this.props.user } fetchAccounts={ this.fetchAccounts }/>
+                        <AccountForm token={ this.props.token } userId={ this.props.user } fetchAccounts={ this.fetchAccounts } />
                     </Col>
                 </Row>
                 <Row>
