@@ -15,7 +15,9 @@ export default class LoginForm extends Component {
     }
 
     loginUser = async(event) => {
-        event.preventDefault();
+        if (this.state.isAddUesr === false) {
+            event.preventDefault()
+        }
         try {
             const res = await axios.post('/user/login/', this.state.userForm);
             console.log(res);
@@ -28,6 +30,7 @@ export default class LoginForm extends Component {
     }
 
     addNewUser = async(event) => {
+        event.preventDefault()
         try {
             const res = await axios.post('/user/signup/', this.state.userForm);
             console.log(res);

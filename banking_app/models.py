@@ -3,7 +3,7 @@ from accounts.models import AccountHolder
 import uuid
 
 class Account(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4().hex, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=100)
     balance = models.IntegerField(default=0)
     user = models.ForeignKey(AccountHolder, on_delete=models.CASCADE, related_name='accounts', null=True)

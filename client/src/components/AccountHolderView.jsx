@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import UserInfo from './UserInfo'
 import AccountList from './AccountList'
 import axios from 'axios'
+import AccountForm from './AccountForm'
 
 export default class AccountHolderView extends Component {
     state = {
@@ -50,6 +51,7 @@ export default class AccountHolderView extends Component {
                         <AccountList accounts={ this.state.accounts }/>
                     </Col>
                 </Row>
+                <AccountForm token={ this.props.token } userId={ this.props.user } fetchAccounts={ this.fetchAccounts }/>
             </Container>
         )
     }

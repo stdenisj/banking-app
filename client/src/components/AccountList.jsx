@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import AccountListItem from './AccountListItem'
-
 export default class AccountList extends Component {
-
+    
     render() {
         return (
             <div>
@@ -18,3 +17,4 @@ export default class AccountList extends Component {
         )
     }
 }
+
