@@ -51,7 +51,15 @@ export default class AccountHolderView extends Component {
                         <AccountList accounts={ this.state.accounts }/>
                     </Col>
                 </Row>
-                <AccountForm token={ this.props.token } userId={ this.props.user } fetchAccounts={ this.fetchAccounts }/>
+                <Row>
+                    <Col>
+                        <AccountForm token={ this.props.token } userId={ this.props.user } fetchAccounts={ this.fetchAccounts }/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                    </Col>
+                </Row>
             </Container>
         )
     }
