@@ -3,6 +3,7 @@ from accounts.models import AccountHolder
 import uuid
 
 class Account(models.Model):
+    
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=100)
     balance = models.IntegerField(default=0)
@@ -33,15 +34,16 @@ class Account(models.Model):
             return 'Invalid input'
 
 class Transaction(models.Model):
-    class Action(models.IntegerChoices):
-        Withdraw = 1
-        Deposit = 2
 
-    action = models.IntegerField(choices=Action.choices, null=True)
-    description = models.CharField(max_length=200)
-    amount = models.PositiveIntegerField()
+    class Action(models.Choices):
+        Withdraw = 'Withdraw'
+        Deposit = 'Deposit'
+
     account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='transactions')
+    action = models.CharField(max_length=8, choices=Action.choices)
+    amount = models.PositiveIntegerField()
     date = models.DateField(auto_now=True)
+    description = models.CharField(max_length=200)
 
     def __str__(self):
         return self.description

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
-import { Container, Accordion, Card } from 'react-bootstrap'
+import { Container, Accordion, Card, Table } from 'react-bootstrap'
 import TransactionDetails from './TransactionDetails'
 import TransactionForm from './TransactionForm'
 
@@ -32,7 +32,7 @@ export default class AccountListItem extends Component {
             //     }
             // </Container> 
 
-            <Card>
+        <Card>
             <Accordion.Toggle as={Card.Header} eventKey={ id }>
             { title }
             <span>
@@ -40,16 +40,33 @@ export default class AccountListItem extends Component {
             </span>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey={ id }>
-                <Card.Body>
-                { transactions.map( (transaction, index) => {
-                        return <TransactionDetails transaction={ transaction } key={ index } />
-                    })
-                }
-                    <br/>
-                    <TransactionForm userId={ user } accountId={ id } token={ this.props.token } />
-                </Card.Body>
+            <Card.Body>
+
+                <Table striped bordered hover variant="dark" responsive>
+                    <thead>
+                        <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Deposits</th>
+                        <th>WithDrawals</th>
+                        <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            { transactions.map( (transaction, index) => {
+                                return <TransactionDetails transaction={ transaction } key={ index } account={ this.props.account } />
+                            })
+                        }
+                    </tbody>
+                </Table>
+                    <TransactionForm 
+                        userId={ user } 
+                        accountId={ id } 
+                        token={ this.props.token } 
+                        fetchAccounts={ this.props.fetchAccounts }/>
+                        </Card.Body>
             </Accordion.Collapse>
-            </Card>
+        </Card>
         )
     }
 }

@@ -6,7 +6,7 @@ from . import views
 router = routers.DefaultRouter()
 router.register('accounts', views.AccountView, basename='AccountView')
 router.register('users', views.UserView, basename='UserView')
-router.register('transactions', views.TransactionView)
+router.register('transactions', views.TransactionView, basename='TransactionView')
 
 urlpatterns = [
     path('', include(router.urls))

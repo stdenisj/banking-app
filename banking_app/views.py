@@ -6,6 +6,7 @@ from accounts.models import AccountHolder
 from accounts.serializers import ReturnUserSerializer
 from rest_framework_simplejwt import authentication
 from accounts.models import AccountHolder
+from rest_framework.decorators import action
 
 class AccountView(viewsets.ModelViewSet):
     # queryset = Account.objects.all()
@@ -15,8 +16,11 @@ class AccountView(viewsets.ModelViewSet):
         return self.request.user.accounts.all()
 
 class TransactionView(viewsets.ModelViewSet):
-    queryset = Transaction.objects.all()
+    # queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
+
+    def get_queryset(self):
+        return self.request.user.transactions.all()
 
 class UserView(viewsets.ModelViewSet):
     # queryset = AccountHolder.objects.all()

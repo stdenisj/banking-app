@@ -5,6 +5,7 @@ import { Container, Form, Button } from 'react-bootstrap'
 export default class TransactionForm extends Component {
     state = {
         transactionForm: {
+            action: 'Withdraw',
             description: '',
             amount: 0,
         },
@@ -32,9 +33,8 @@ export default class TransactionForm extends Component {
             const updatedtransactionForm = { ...this.state.transactionForm };
             updatedtransactionForm.user = this.props.userId;
             updatedtransactionForm.account = this.props.accountId;
-
             await axios.post('/api/v1/transactions/', updatedtransactionForm, { headers: { "Authorization" : `Bearer ${this.props.token}`}});
-            // this.props.fetchTransactions();
+            this.props.fetchAccounts();
         }
         catch (error) {
             console.log(error)
@@ -49,8 +49,8 @@ export default class TransactionForm extends Component {
             ? <Form className='transactionForm' onSubmit={ this.addNewTransaction }>
                     <Form.Group>
                         <Form.Control as='select' name='action' onChange={ this.inputChange}>
-                            <option value='1'>Withdraw</option>
-                            <option value='2'>Deposit</option>
+                            <option value='Withdraw'>Withdraw</option>
+                            <option value='Deposit'>Deposit</option>
                         </Form.Control>
                     </Form.Group>            
                     <Form.Group>
