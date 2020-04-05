@@ -18,7 +18,6 @@ export default class AccountListItem extends Component {
 
     updateAccount = async(amount, action) => {
         try {
-            // console.log( amount, action, this.props.account.balance, typeof(this.props.account.balance), typeof(amount), typeof(action))
             const updatedAccount = { ...this.props.account }
             const enteredAmount = Number(amount)
             if (action === 'Withdraw') {
@@ -27,7 +26,6 @@ export default class AccountListItem extends Component {
             else {
                 updatedAccount.balance += enteredAmount;
             }
-            console.log(updatedAccount)
             const res = await axios.put(`/api/v1/accounts/${updatedAccount.id}/`, updatedAccount, { headers: { "Authorization" : `Bearer ${this.props.token}`}})
         }
         catch (error) {
@@ -54,10 +52,8 @@ export default class AccountListItem extends Component {
 
         <Card>
             <Accordion.Toggle as={Card.Header} eventKey={ id }>
-            { title }
-            <span>
-                Balance: ${ balance }
-            </span>
+            <h3>{ title }</h3>
+            <h4>Balance: ${ balance }</h4>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey={ id }>
             <Card.Body>

@@ -19,7 +19,6 @@ export default class AccountHolderView extends Component {
     fetchUser = async() => {
         try {
             const res = await axios.get('/api/v1/users/', { headers: { "Authorization" : `Bearer ${this.props.token}`}});
-            console.log(res)
             this.setState({ user: res.data[0] })
         }
         catch (error) {

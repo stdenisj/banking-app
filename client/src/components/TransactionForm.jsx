@@ -34,15 +34,16 @@ export default class TransactionForm extends Component {
             let newForm = { ...this.state.transactionForm };
             newForm.user = userId;
             newForm.account = accountId;
+            const balance = Number(account.balance)
+            const amount = Number(newForm.amount)
             if ( newForm.action === 'Withdraw') {
-                newForm.balance = account.balance - newForm.amount
+                newForm.balance = balance - amount
             }
             else {
-                newForm.balance = account.balance + newForm.amount
+                newForm.balance = balance + amount
             }
             
             this.props.updateAccount(newForm.amount, newForm.action);
-            console.log(newForm)
             await axios.post('/api/v1/transactions/', newForm, { headers: { "Authorization" : `Bearer ${this.props.token}`}});
             this.props.fetchAccounts()
         }

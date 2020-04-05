@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Container, Form, Button } from 'react-bootstrap'
+import { Container, Form, Button, Row, Col } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
 
 export default class LoginForm extends Component {
@@ -20,7 +20,6 @@ export default class LoginForm extends Component {
         }
         try {
             const res = await axios.post('/user/login/', this.state.userForm);
-            console.log(res);
             this.props.getToken(res.data);
             this.setState({ isRedirect: true });
         }
@@ -33,7 +32,6 @@ export default class LoginForm extends Component {
         event.preventDefault()
         try {
             const res = await axios.post('/user/signup/', this.state.userForm);
-            console.log(res);
             this.loginUser(event)
         }
         catch (error) {
@@ -58,34 +56,42 @@ export default class LoginForm extends Component {
 
     
     render() {
+
         return (
-            <Container id="LoginPage">
+            <Container fluid>
             { this.state.isRedirect
-                ? <Redirect to='/account' user={this.state.currentUser}/>
+                ? <Redirect to='/account' user={ this.state.currentUser }/>
                 : null
                 }
                 
-                <Form className='LoginForm' onSubmit={ this.state.isAddUesr ? this.addNewUser : this.loginUser }>
+                <Form 
+                    className='LoginForm'
+                    onSubmit={ this.state.isAddUesr ? this.addNewUser : this.loginUser }
+                    >
                     <Form.Group>
                         <Form.Control type='text' name='username' onChange={ this.inputChange} placeholder='Enter User Name'/>
                     </Form.Group>            
                     <Form.Group>
                         <Form.Control type='password' name='password' onChange={ this.inputChange} placeholder='Enter Password' />
                     </Form.Group>
-                    <Button type='submit'>
-                        { this.state.isAddUesr
-                            ? 'Create User'
-                            : 'Log In' 
-                        }
+
+                    <Button 
+                        type='submit'
+                        style={{ margin: '20px' }}>
+                                { this.state.isAddUesr
+                                    ? 'Create User'
+                                    : 'Log In' 
+                                }
                     </Button>
+                    <Button 
+                        onClick={ this.toggleNewUserForm }
+                        style={{ margin: '20px' }}>
+                                {this.state.isAddUesr
+                                ?'Cancel'
+                                :'Create Account'
+                            }
+                    </Button>    
                 </Form>
-                <br/>
-                <Button onClick={ this.toggleNewUserForm }>
-                    {this.state.isAddUesr
-                    ?'Cancel'
-                    :'Create Account'
-                    }
-                </Button>
             </Container>
         )
     }
