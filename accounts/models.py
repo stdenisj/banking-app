@@ -5,5 +5,6 @@ import uuid
 
 class AccountHolder(User):
 
+
     class Meta:
         proxy = True

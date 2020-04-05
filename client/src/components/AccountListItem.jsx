@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Container, Accordion, Card, Table } from 'react-bootstrap'
 import TransactionDetails from './TransactionDetails'
 import TransactionForm from './TransactionForm'
+import axios from 'axios'
 
 
 export default class AccountListItem extends Component {
@@ -13,6 +14,25 @@ export default class AccountListItem extends Component {
     toggleTransactions = (event) => {
         event.preventDefault();
         this.setState({ transactions: !this.state.transactions});
+    }
+
+    updateAccount = async(amount, action) => {
+        try {
+            // console.log( amount, action, this.props.account.balance, typeof(this.props.account.balance), typeof(amount), typeof(action))
+            const updatedAccount = { ...this.props.account }
+            const enteredAmount = Number(amount)
+            if (action === 'Withdraw') {
+                updatedAccount.balance -= enteredAmount;
+            }
+            else {
+                updatedAccount.balance += enteredAmount;
+            }
+            console.log(updatedAccount)
+            const res = await axios.put(`/api/v1/accounts/${updatedAccount.id}/`, updatedAccount, { headers: { "Authorization" : `Bearer ${this.props.token}`}})
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
 
     render() {
@@ -61,9 +81,11 @@ export default class AccountListItem extends Component {
                 </Table>
                     <TransactionForm 
                         userId={ user } 
-                        accountId={ id } 
+                        accountId={ id }
+                        account={ this.props.account } 
                         token={ this.props.token } 
-                        fetchAccounts={ this.props.fetchAccounts }/>
+                        fetchAccounts={ this.props.fetchAccounts }
+                        updateAccount={ this.updateAccount }/>
                         </Card.Body>
             </Accordion.Collapse>
         </Card>

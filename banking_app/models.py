@@ -3,7 +3,7 @@ from accounts.models import AccountHolder
 import uuid
 
 class Account(models.Model):
-    
+
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=100)
     balance = models.IntegerField(default=0)
@@ -39,9 +39,11 @@ class Transaction(models.Model):
         Withdraw = 'Withdraw'
         Deposit = 'Deposit'
 
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='transactions')
     action = models.CharField(max_length=8, choices=Action.choices)
     amount = models.PositiveIntegerField()
+    balance = models.PositiveIntegerField
     date = models.DateField(auto_now=True)
     description = models.CharField(max_length=200)
 

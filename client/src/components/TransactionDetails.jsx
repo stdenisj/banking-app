@@ -3,8 +3,7 @@ import { Card, Row, Col} from 'react-bootstrap'
 
 export default class TransactionDetails extends Component {
     render() {
-        let balance = this.props.account.balance
-        const { date, action, description, amount } = this.props.transaction
+        const { date, action, description, amount, balance } = this.props.transaction
         return (
             // <Card>
             //     <Row>
@@ -23,8 +22,8 @@ export default class TransactionDetails extends Component {
                 <td>{ date }</td>
                 <td>{ description }</td>
                 <td>{ action === 'Deposit' ? amount : null } </td>
-                <td>{ action === 'Withdraw' ? amount : null } </td>
-                <td>{ balance += amount }</td>
+                <td>{ action === 'Withdraw' ? -amount : null } </td>
+                <td>{ balance }</td>
             </tr>
         )
     }

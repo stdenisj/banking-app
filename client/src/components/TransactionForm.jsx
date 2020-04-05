@@ -29,12 +29,23 @@ export default class TransactionForm extends Component {
 
     addNewTransaction = async(event) => {
         event.preventDefault();
+        const { userId, accountId, account } = this.props
         try {
-            const updatedtransactionForm = { ...this.state.transactionForm };
-            updatedtransactionForm.user = this.props.userId;
-            updatedtransactionForm.account = this.props.accountId;
-            await axios.post('/api/v1/transactions/', updatedtransactionForm, { headers: { "Authorization" : `Bearer ${this.props.token}`}});
-            this.props.fetchAccounts();
+            const newForm = { ...this.state.transactionForm };
+            newForm.user = userId;
+            newForm.account = accountId;
+            let balance = 0
+            if(account.balance !== null){ balance = account.balance}
+            if ( newForm.action === 'Withdraw') {
+                newForm.balance = balance - newForm.amount
+            }
+            else {
+                newForm.balance = balance - newForm.amount
+            }
+            
+            this.props.updateAccount(newForm.amount, newForm.action);
+            await axios.post('/api/v1/transactions/', newForm, { headers: { "Authorization" : `Bearer ${this.props.token}`}});
+            this.props.fetchAccounts()
         }
         catch (error) {
             console.log(error)
