@@ -23,7 +23,7 @@ export default class TransactionDetails extends Component {
                 <td>{ description }</td>
                 <td>{ action === 'Deposit' ? amount : null } </td>
                 <td>{ action === 'Withdraw' ? -amount : null } </td>
-                <td>{ balance }</td>
+                <td> { balance } </td>
             </tr>
         )
     }

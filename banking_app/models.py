@@ -43,7 +43,7 @@ class Transaction(models.Model):
     account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='transactions')
     action = models.CharField(max_length=8, choices=Action.choices)
     amount = models.PositiveIntegerField()
-    balance = models.PositiveIntegerField
+    balance = models.PositiveIntegerField(null=True)
     date = models.DateField(auto_now=True)
     description = models.CharField(max_length=200)
 
