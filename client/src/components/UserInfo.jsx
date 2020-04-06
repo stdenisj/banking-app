@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Container, Col, Row,Button} from 'react-bootstrap'
-
+import { Container, Col, Row, Button, Image} from 'react-bootstrap'
+import logo from '../images/logo.png'
 
 export default class UserInfo extends Component {
     render() {
@@ -12,7 +12,7 @@ export default class UserInfo extends Component {
                         <h4>Hello { first_name === "" ? username : first_name }</h4>
                     </Col>
                     <Col className='headerbar'>
-                        <h1>Banking Logo</h1>
+                        <Image src={ logo } width='100rem' />
                     </Col>
                     <Col className='headerbar'>
                         <a href='/' ><Button size='sm' onclick={ this.logout }>Logout</Button></a>
