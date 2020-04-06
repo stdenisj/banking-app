@@ -12,7 +12,7 @@ export default class UserInfo extends Component {
                         <h4>Hello { first_name === "" ? username : first_name }</h4>
                     </Col>
                     <Col className='headerbar'>
-                        <Image src={ logo } width='100rem' />
+                        <Image src={ logo } width='125rem' />
                     </Col>
                     <Col className='headerbar'>
                         <a href='/' ><Button size='sm' onclick={ this.logout }>Logout</Button></a>
