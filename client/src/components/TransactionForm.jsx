@@ -65,12 +65,12 @@ export default class TransactionForm extends Component {
                         </Form.Control>
                     </Form.Group>            
                     <Form.Group>
-                        <Form.Control type='text' name='description' onChange={ this.inputChange} placeholder='Enter Transaction Name'/>
+                        <Form.Control type='text' name='description' onChange={ this.inputChange} placeholder='Enter Transaction Description'/>
                     </Form.Group>            
                     <Form.Group>
                         <Form.Control type='number' name='amount' onChange={ this.inputChange} placeholder='Enter Amount'/>
                     </Form.Group>            
-                    <Button variant="success" type='submit'>
+                    <Button type='submit'>
                         Create Transaction
                     </Button>
                 </Form>

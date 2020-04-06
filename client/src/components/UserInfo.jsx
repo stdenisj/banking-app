@@ -1,20 +1,24 @@
 import React, { Component } from 'react'
-import { Card } from 'react-bootstrap'
+import { Container, Col, Row,Button} from 'react-bootstrap'
+
 
 export default class UserInfo extends Component {
     render() {
-        const { username } = this.props.user
+        const { username, first_name } = this.props.user
         return (
-            <Card style={{ width: '18rem' }}>
-                <Card.Body>
-
-                <h1>User: { username }</h1>
-                <p>
-                    This is a simple hero unit, a simple jumbotron-style component for calling
-                    extra attention to featured content or information.
-                </p>
-                </Card.Body>
-            </Card>
+            <Container fluid >
+                <Row>
+                    <Col className='headerbar'>
+                        <h4>Hello { first_name === "" ? username : first_name }</h4>
+                    </Col>
+                    <Col className='headerbar'>
+                        <h1>Banking Logo</h1>
+                    </Col>
+                    <Col className='headerbar'>
+                        <a href='/' ><Button size='sm' onclick={ this.logout }>Logout</Button></a>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 }

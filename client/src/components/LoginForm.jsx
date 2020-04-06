@@ -74,7 +74,20 @@ export default class LoginForm extends Component {
                     <Form.Group>
                         <Form.Control type='password' name='password' onChange={ this.inputChange} placeholder='Enter Password' />
                     </Form.Group>
-
+                    {   this.state.isAddUesr
+                        ? <div>
+                            <Form.Group>
+                                <Form.Control type='text' name='first_name' onChange={ this.inputChange} placeholder='Enter Your First Name'/>
+                            </Form.Group>       
+                            <Form.Group>
+                                <Form.Control type='text' name='last_name' onChange={ this.inputChange} placeholder='Enter Your Last Name'/>
+                            </Form.Group>       
+                            <Form.Group>
+                                <Form.Control type='email' name='email' onChange={ this.inputChange} placeholder='Enter Your Email Address'/>
+                            </Form.Group>       
+                        </div>
+                        : null
+                    }
                     <Button 
                         type='submit'
                         style={{ margin: '20px' }}>

@@ -64,6 +64,8 @@ class RegisterUsersView(generics.ListCreateAPIView):
         username = request.data.get("username", "")
         password = request.data.get("password", "")
         email = request.data.get("email", "")
+        first_name = request.data.get("first_name", "")
+        last_name = request.data.get("last_name", "")
         if not username and not password and not email:
             return Response(
                 data={
@@ -72,7 +74,7 @@ class RegisterUsersView(generics.ListCreateAPIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
         new_user = AccountHolder.objects.create_user(
-            username=username, password=password, email=email
+            username=username, password=password, email=email, first_name=first_name, last_name=last_name
         )
         my_group = Group.objects.get(name='AccountHolder')
         my_group.user_set.add(new_user)
