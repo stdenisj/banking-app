@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Accordion, Card, Table, Col, Row } from 'react-bootstrap'
+import { Card, Table, Col, Row } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronCircleDown } from '@fortawesome/free-solid-svg-icons'
 import TransactionDetails from './TransactionDetails'
@@ -38,7 +38,7 @@ export default class AccountListItem extends Component {
         const { id, title, user, transactions, balance} = this.props.account
         return (
         <Card>
-            <Accordion.Toggle as={Card} eventKey={ id }>
+            {/* <Accordion.Toggle as={Card} eventKey={ id }> */}
                 <Card>
                     <Row>
                         <Col className='hiddendivs'>
@@ -65,8 +65,8 @@ export default class AccountListItem extends Component {
                         </Col>
                     </Row>
                 </Card>
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey={ id }>
+            {/* </Accordion.Toggle> */}
+            {/* <Accordion.Collapse eventKey={ id }> */}
                 <Card.Body>
                     <Table responsive>
                         <thead>
@@ -93,7 +93,7 @@ export default class AccountListItem extends Component {
                             fetchAccounts={ this.props.fetchAccounts }
                             updateAccount={ this.updateAccount }/>
                 </Card.Body>
-            </Accordion.Collapse>
+            {/* </Accordion.Collapse> */}
         </Card>
         )
     }

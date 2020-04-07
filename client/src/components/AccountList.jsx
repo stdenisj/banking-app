@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AccountListItem from './AccountListItem'
-import { Accordion } from 'react-bootstrap'
+// import { Accordion } from 'react-bootstrap'
 
 export default class AccountList extends Component {
 
@@ -9,7 +9,7 @@ export default class AccountList extends Component {
         return (
             <div>
 
-                <Accordion>
+                {/* <Accordion> */}
                     {
                         this.props.accounts.map( (account, index) => {
                             return <AccountListItem 
@@ -20,7 +20,7 @@ export default class AccountList extends Component {
                             />
                         })
                     }
-                </Accordion>
+                {/* </Accordion> */}
             </div>
         )
     }
