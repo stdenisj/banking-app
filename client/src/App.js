@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import AccountHolderView from './components/AccountHolderView'
 import LoginPage from './components/LoginPage'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 export default class App extends Component {
@@ -23,8 +22,8 @@ export default class App extends Component {
       <div className="App" id='Application'>
         <Router>
           <Switch>
+            <Route exact path = '/account' render = { AccountHolderViewComponent }/>
             <Route exact path = '/' render = { LoginPageComponent } />
-            <Route path = '/account' render = { AccountHolderViewComponent }/>
           </Switch>
         </Router>
       </div>

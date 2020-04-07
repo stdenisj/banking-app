@@ -13,7 +13,6 @@ djangorestframework = "*"
 gunicorn = "*"
 django-heroku = "*"
 djangorestframework-simplejwt = "*"
-whitenoise = "*"
 
 [requires]
 python_version = "3.8"
