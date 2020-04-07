@@ -1,9 +1,8 @@
 <h1> Overview </h1>
-Are you tired of scouring the internet looking for restaurants that have vegan options?<br>
-Are you tired of Scrolling through endless reviews on a website, not knowing if they are genuine?<br>
+What is Bank?<br>
+Bank is designed to let users track their spending and saving all in one place.<br>
 <br/>
 <br/>
-This is Veganelp, a review site for plant-based and vegan friendly restaurants. Restaurants do not pay to have their information on Veganelp. This site was created to allow users to see the restaurants and reviews without worrying about them not being unbiased.
 <br/>
 
 [Live site](https://banking-app-project.herokuapp.com/)
