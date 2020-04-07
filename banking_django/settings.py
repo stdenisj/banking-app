@@ -21,7 +21,6 @@ STATICFILES_DIR = [
     os.path.join(REACT_APP_DIR, 'build', 'static')
 ]
 
-
 AUTH_USER_MODEL = 'accounts.AccountHolder'
 
 # Quick-start development settings - unsuitable for production
@@ -33,7 +32,7 @@ SECRET_KEY = '9=8w$2#ilvimj^#v^l*g818ue!ynk-mxu98!1@u5*pm@5hgj1='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://banking-app-project.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -52,7 +51,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -99,8 +97,8 @@ REST_FRAMEWORK = {
 #     # Use Django's standard `django.contrib.auth` permissions,
 #     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-        # 'rest_framework.permissions.IsAuthenticated',
+    #     # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -170,9 +168,6 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
-
-# os.path.join(BASE_DIR, "static")
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 import django_heroku

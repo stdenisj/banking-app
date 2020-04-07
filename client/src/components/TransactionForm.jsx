@@ -50,8 +50,8 @@ export default class TransactionForm extends Component {
             }
             this.props.updateAccount(newForm.amount, newForm.action);
             await axios.post('/api/v1/transactions/', newForm, { headers: { "Authorization" : `Bearer ${this.props.token}`}});
-            this.toggleNewtransactionForm();
             this.props.fetchAccounts();
+            this.toggleNewtransactionForm();
         }
         catch (error) {
             console.log(error)

@@ -19,7 +19,7 @@ export default class LoginForm extends Component {
             event.preventDefault()
         }
         try {
-            const res = await axios.post('/api/user/login/', this.state.userForm);
+            const res = await axios.post('/user/login/', this.state.userForm);
             this.props.getToken(res.data);
             this.setState({ isRedirect: true });
         }
@@ -31,7 +31,7 @@ export default class LoginForm extends Component {
     addNewUser = async(event) => {
         event.preventDefault()
         try {
-            await axios.post('/api/user/signup/', this.state.userForm);
+            await axios.post('/user/signup/', this.state.userForm);
             this.loginUser(event)
         }
         catch (error) {
