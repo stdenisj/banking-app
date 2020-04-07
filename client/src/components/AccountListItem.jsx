@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
-import { Container, Accordion, Card, Table, Navbar } from 'react-bootstrap'
+import { Accordion, Card, Table, Col, Row } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronCircleDown } from '@fortawesome/free-solid-svg-icons'
 import TransactionDetails from './TransactionDetails'
 import TransactionForm from './TransactionForm'
 import axios from 'axios'
@@ -26,7 +27,7 @@ export default class AccountListItem extends Component {
             else {
                 updatedAccount.balance += enteredAmount;
             }
-            const res = await axios.put(`/api/v1/accounts/${updatedAccount.id}/`, updatedAccount, { headers: { "Authorization" : `Bearer ${this.props.token}`}})
+            await axios.put(`/api/v1/accounts/${updatedAccount.id}/`, updatedAccount, { headers: { "Authorization" : `Bearer ${this.props.token}`}})
         }
         catch (error) {
             console.log(error)
@@ -39,9 +40,30 @@ export default class AccountListItem extends Component {
         <Card>
             <Accordion.Toggle as={Card} eventKey={ id }>
                 <Card>
-                    <h3>{ title }</h3>
-                    <h4>Balance: ${ balance }</h4>
-                    <h6>Expand</h6>
+                    <Row>
+                        <Col className='hiddendivs'>
+                        </Col>
+                            <Col>
+                                <Row>
+                                    <Col className='hiddendivs'>
+                                    </Col>
+                                    <Col xs={8}>
+                                    <h3>
+                                        { title }
+                                    </h3>
+                                    <h4>
+                                        Balance: ${ balance }
+                                    </h4>
+                                    </Col>
+                                    <Col style={{ placeSelf: 'center' }}>
+                                        <FontAwesomeIcon icon={faChevronCircleDown} size="lg" />
+                                    </Col>
+                                </Row>
+                            </Col>
+                        <Col className='hiddendivs'>
+    
+                        </Col>
+                    </Row>
                 </Card>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey={ id }>

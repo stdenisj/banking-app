@@ -2,92 +2,6 @@
   text-align: center;
 }
 
-
-
-#ProductCard {
-  margin: 0px 20px;
-}
-
-.ProductImage {
-  width: 15rem;
-  margin: 10px;
-}
-
-.ProductRow {
-    height: 14rem;
-    display: flex;
-    flex-wrap: nowrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    overflow: auto;
-    background: rgba(255, 255, 255, 0.5);
-}
-
-.MainPageImage {
-  max-width: 50vw;
-  max-height: 50vh;
-}
-
-.ReviewCard {
-   min-width: 16rem;
-   width: 100%;
-}
-
-.ReviewColumns {
-  padding: 10px;
-  max-width: max-content;
-}
-
-#SearchPage {
-  padding: 10vw;
-  background-image: url('https://i1.wp.com/foodrevolution.org/wp-content/uploads/blog-featured-veganism1-20180117-1430.jpg?ssl=1');
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow-y: auto;
-  height: 100vh;
-  width: 100vw;
-}
-
-.SearchBox {
-  text-align: center;
-}
-
-
-.SearchHeading {
-  color: rgb(255, 255, 255);
-  background-color: #282c343d;
-  max-width: fit-content;
-  display: inline-block;
-  border-radius: 10px;
-}
-
-#Navigation {
-  color: seagreen;
-}
-
-.RestaurantCard {
-  margin: 20px 35px
-}
-
-.RestaurantListCard {
-   max-width: max-content;
-   overflow: auto;
-
-}
-
-#ReataurantListPage {
-  background-image: url('https://pinedovefarm.com/media/2017/04/bigstock-166401173.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
-  overflow-y: auto;
-}
-
-.ReviewRow {
-  place-content: space-evenly;
-}
-
 #LoginPage {
   background-image: url('https://images.unsplash.com/photo-1459257831348-f0cdd359235f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
   overflow-y: auto;
@@ -99,8 +13,16 @@
   width: 100vw;
 }
 
-.LoginForm {
+.LoginForm  {
   padding: 5vw;
+}
+
+.transactionForm {
+  padding: 2vw;
+}
+
+.AccountForm {
+  padding: 2vw;
 }
 
 .form-control {
@@ -126,4 +48,18 @@
 
 .headerbar {
   place-self: center;
+}
+
+.hiddendivs {
+  visibility: hidden;
+}
+
+button {
+  margin: 20px;
+}
+
+@media ( max-width: 500px) {
+  .hiddendivs {
+    position: fixed;
+  }
 }

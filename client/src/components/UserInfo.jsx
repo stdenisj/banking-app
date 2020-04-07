@@ -15,7 +15,7 @@ export default class UserInfo extends Component {
                         <Image src={ logo } width='125rem' />
                     </Col>
                     <Col className='headerbar'>
-                        <a href='/' ><Button size='sm' onclick={ this.logout }>Logout</Button></a>
+                        <a href='/' ><Button size='sm' onClick={ this.logout }>Logout</Button></a>
                     </Col>
                 </Row>
             </Container>

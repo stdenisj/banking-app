@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Container, Form, Button, Row, Col } from 'react-bootstrap'
+import { Container, Form, Button, } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
 
 export default class LoginForm extends Component {
@@ -31,7 +31,7 @@ export default class LoginForm extends Component {
     addNewUser = async(event) => {
         event.preventDefault()
         try {
-            const res = await axios.post('/user/signup/', this.state.userForm);
+            await axios.post('/user/signup/', this.state.userForm);
             this.loginUser(event)
         }
         catch (error) {

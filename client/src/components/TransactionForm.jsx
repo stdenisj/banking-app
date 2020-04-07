@@ -30,22 +30,28 @@ export default class TransactionForm extends Component {
     addNewTransaction = async(event) => {
         event.preventDefault();
         const { userId, accountId, account } = this.props
+        const { action, amount } = this.state.transactionForm
+        if (( action === 'Withdraw' ) && ( amount > account.balance )) {
+            return  alert('Insufficent funds')
+        }
         try {
             let newForm = { ...this.state.transactionForm };
             newForm.user = userId;
             newForm.account = accountId;
-            const balance = Number(account.balance)
-            const amount = Number(newForm.amount)
+            const formBalance = Number(account.balance)
+            const formAmount = Number(newForm.amount)
+            
+
             if ( newForm.action === 'Withdraw') {
-                newForm.balance = balance - amount
+                newForm.balance = formBalance - formAmount
             }
             else {
-                newForm.balance = balance + amount
+                newForm.balance = formBalance + formAmount
             }
-            
             this.props.updateAccount(newForm.amount, newForm.action);
             await axios.post('/api/v1/transactions/', newForm, { headers: { "Authorization" : `Bearer ${this.props.token}`}});
-            this.props.fetchAccounts()
+            this.props.fetchAccounts();
+            this.toggleNewtransactionForm();
         }
         catch (error) {
             console.log(error)
@@ -70,19 +76,21 @@ export default class TransactionForm extends Component {
                     <Form.Group>
                         <Form.Control type='number' name='amount' onChange={ this.inputChange} placeholder='Enter Amount'/>
                     </Form.Group>            
-                    <Button type='submit'>
+                    <Button type='submit' size='sm' >
                         Create Transaction
                     </Button>
-                </Form>
-            : null
-            }
-                <br/>
-                <Button onClick={ this.toggleNewtransactionForm }>
-                    {this.state.isAddTransaction
-                    ?'Cancel'
-                    :'Create Transaction'
-                    }
+                <Button onClick={ this.toggleNewtransactionForm } size='sm' >
+                    Cancel
                 </Button>
+                </Form>
+            :   <Button onClick={ this.toggleNewtransactionForm } size='sm' >
+                    Add Transaction
+                </Button>
+            }
+            { this.props.account.balance === 0
+                ? <Button onClick={ this.removeAccount } size='sm' variant='danger'>Delete Account</Button>
+                : null
+            }
             </Container>
         )
     }

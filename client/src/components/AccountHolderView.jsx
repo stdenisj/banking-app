@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Accordion, Card, Button, Image, Jumbotron } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import UserInfo from './UserInfo'
 import AccountList from './AccountList'
 import axios from 'axios'
@@ -40,7 +40,6 @@ export default class AccountHolderView extends Component {
         return (
             <Container fluid>
                 <Row id='banner'>
-
                 </Row>
                 <Row>
                     <Col>
