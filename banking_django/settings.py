@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django_extensions',
     'banking_app',
     'accounts',
+    'client',
+    'staticfiles'
 ]
 
 MIDDLEWARE = [
