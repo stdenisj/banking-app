@@ -23,8 +23,8 @@ export default class App extends Component {
       <div className="App" id='Application'>
         <Router>
           <Switch>
-            <Route exact path = '/account' render = { AccountHolderViewComponent }/>
             <Route exact path = '/' render = { LoginPageComponent } />
+            <Route path = '/account' render = { AccountHolderViewComponent }/>
           </Switch>
         </Router>
       </div>
