@@ -21,6 +21,7 @@ STATICFILES_DIR = [
     os.path.join(REACT_APP_DIR, 'build', 'static')
 ]
 
+
 AUTH_USER_MODEL = 'accounts.AccountHolder'
 
 # Quick-start development settings - unsuitable for production
