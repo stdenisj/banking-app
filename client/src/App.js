@@ -11,10 +11,8 @@ export default class App extends Component {
   }
 
   getToken = (response) => {
-    this.setState({ token: response.token, user: response.user }) 
+    this.setState({ token: response.token, user: response.user })
   }
-
-  
 
   render() {
     const AccountHolderViewComponent = () => (<AccountHolderView token={ this.state.token } user={ this.state.user }/>)

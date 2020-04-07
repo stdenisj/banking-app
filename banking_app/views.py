@@ -9,21 +9,18 @@ from accounts.models import AccountHolder
 from rest_framework.decorators import action
 
 class AccountView(viewsets.ModelViewSet):
-    # queryset = Account.objects.all()
     serializer_class = AccountSerializer
 
     def get_queryset(self):
         return self.request.user.accounts.all()
 
 class TransactionView(viewsets.ModelViewSet):
-    # queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
 
     def get_queryset(self):
         return self.request.user.transactions.all()
 
 class UserView(viewsets.ModelViewSet):
-    # queryset = AccountHolder.objects.all()
     serializer_class = ReturnUserSerializer
     
     def get_queryset(self):

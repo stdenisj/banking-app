@@ -58,6 +58,17 @@ export default class TransactionForm extends Component {
         }
     }    
 
+    removeAccount = async(event) => {
+        event.preventDefault();
+        try {
+            await axios.delete(`/api/v1/accounts/${ this.props.accountId }/`, { headers: { "Authorization" : `Bearer ${this.props.token}`}})
+            alert('Account deleted')
+            this.props.fetchAccounts();
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 
     render() {
         return (
