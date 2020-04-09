@@ -175,5 +175,7 @@ SIMPLE_JWT = {
 
 STATICFILES_STOREAGE = 'whitenoise.storage.CompressedManifestStaticFilesStoreage'
 
+SECURE_SSL_REDIRECT = True
+
 
 django_heroku.settings(locals())
