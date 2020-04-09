@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django_extensions',
     'banking_app',
     'accounts',
+    'django-heroku',
+    'djangorestframework-simplejwt',
 ]
 
 MIDDLEWARE = [
