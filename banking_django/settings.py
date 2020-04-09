@@ -10,16 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 from datetime import timedelta
-import os
 
+import os
+import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-REACT_APP_DIR = os.path.join(BASE_DIR, 'client')
+os.path.join(BASE_DIR, 'client', 'build', 'static')
 
-STATICFILES_DIR = [
-    os.path.join(REACT_APP_DIR, 'build', 'static')
-]
+STATICFILES_DIR = []
 
 AUTH_USER_MODEL = 'accounts.AccountHolder'
 
@@ -32,7 +31,7 @@ SECRET_KEY = '9=8w$2#ilvimj^#v^l*g818ue!ynk-mxu98!1@u5*pm@5hgj1='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://banking-app-project.herokuapp.com/']
 
 # Application definition
 
@@ -174,5 +173,5 @@ SIMPLE_JWT = {
 
 STATICFILES_STOREAGE = 'whitenoise.storage.CompressedManifestStaticFilesStoreage'
 
-import django_heroku
+
 django_heroku.settings(locals())

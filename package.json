@@ -2,7 +2,7 @@
     "name": "banking_django",
     "scripts": {
         "build": "cd client && npm install && npm run build && cd ..",
-        "postinstall": "npm run build && echo 'Client built!'"
+        "postinstall": "npm run build"
     },
     "dependencies": {}
 }
