@@ -21,7 +21,7 @@ STATICFILES_DIR = [
     os.path.join(REACT_APP_DIR, 'build', 'static')
 ]
 
-# AUTH_USER_MODEL = 'accounts.AccountHolder'
+AUTH_USER_MODEL = 'accounts.AccountHolder'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django_extensions',
     'banking_app',
     'accounts',
+    'django-heroku',
+    'djangorestframework-simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -100,9 +102,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
         # 'rest_framework.permissions.IsAuthenticated',
     ),
-    # 'DEFAULT_AUTHENTICATION_CLASSES': (
-    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
-    # ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
 }
 
 # Password validation
