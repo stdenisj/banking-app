@@ -19,7 +19,7 @@ export default class App extends Component {
     const LoginPageComponent = () => (<LoginPage  getToken={ this.getToken }/>)
 
     return (
-      <div className="App" id='Application'>
+      <div className="App">
         <Router>
           <Switch>
             <Route exact path = '/account' render = { AccountHolderViewComponent }/>
