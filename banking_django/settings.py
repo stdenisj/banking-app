@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REACT_APP_DIR = os.path.join(BASE_DIR, 'client')
 
 STATICFILES_DIR = [
-    os.path.join(REACT_APP_DIR, 'build', 'static')
+    os.path.join(REACT_APP_DIR, 'build', 'staticfiles)
 ]
 
 AUTH_USER_MODEL = 'accounts.AccountHolder'
@@ -33,7 +33,7 @@ SECRET_KEY = '9=8w$2#ilvimj^#v^l*g818ue!ynk-mxu98!1@u5*pm@5hgj1='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://banking-app-project.herokuapp.com/']
+ALLOWED_HOSTS = ['https://banking-app-project.herokuapp.com/', 'http://0.0.0.0:5837']
 
 # Application definition
 
