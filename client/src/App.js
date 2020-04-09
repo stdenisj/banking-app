@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import AccountHolderView from './components/AccountHolderView'
 import LoginPage from './components/LoginPage'
-import './App.css';
 
 export default class App extends Component {
   state = {
