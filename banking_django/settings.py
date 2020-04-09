@@ -30,9 +30,9 @@ AUTH_USER_MODEL = 'accounts.AccountHolder'
 SECRET_KEY = '9=8w$2#ilvimj^#v^l*g818ue!ynk-mxu98!1@u5*pm@5hgj1='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -168,3 +168,6 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
+
+import django_heroku
+django_heroku.settings(locals())
