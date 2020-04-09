@@ -18,9 +18,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 REACT_APP_DIR = os.path.join(BASE_DIR, 'client')
 
-STATICFILES_DIR = [
-    os.path.join(REACT_APP_DIR, 'build', 'static')
-]
+STATIC_ROOT = os.path.join(REACT_APP_DIR, 'build', 'static')
+
 
 AUTH_USER_MODEL = 'accounts.AccountHolder'
 
@@ -145,7 +144,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = 'client/build/static/'
+STATIC_URL = '/static/'
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
