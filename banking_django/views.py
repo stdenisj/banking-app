@@ -11,7 +11,7 @@ from django.views.generic import TemplateView
 from django.views.decorators.cache import never_cache
 
 
-index = never_cache(TemplateView.asView(template_name='index.html'))
+index = never_cache(TemplateView.as_view(template_name='index.html'))
 # class FrontendAppView(View):
 #     """
 #     Serves the compiled frontend entry point (only works if you have run `npm
