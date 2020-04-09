@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'banking_app',
     'accounts',
-    'djangorestframework-simplejwt',
 ]
 
 MIDDLEWARE = [
