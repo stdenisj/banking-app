@@ -176,7 +176,7 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStoreage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStoreage'
 
 SECURE_SSL_REDIRECT = True
 
