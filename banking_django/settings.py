@@ -18,8 +18,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 REACT_APP_DIR = os.path.join(BASE_DIR, 'client')
 
-# STATIC_ROOT = os.path.join(REACT_APP_DIR, 'build/static')
-
 STATICFILES_DIRS = [
     os.path.join(REACT_APP_DIR, 'build', 'static')
 ]
@@ -36,7 +34,7 @@ SECRET_KEY = '9=8w$2#ilvimj^#v^l*g818ue!ynk-mxu98!1@u5*pm@5hgj1='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://banking-app-project.herokuapp.com/', 'http://0.0.0.0:5837']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -176,7 +174,6 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStoreage'
 
 SECURE_SSL_REDIRECT = True
 
