@@ -1,6 +1,5 @@
 {
     "name": "banking_django",
-    "proxy": "http://localhost:8000",
     "scripts": {
         "build": "cd client && npm install && npm run build && cd ..",
         "postinstall": "npm run build"
