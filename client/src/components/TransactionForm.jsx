@@ -5,7 +5,7 @@ import { Container, Form, Button } from 'react-bootstrap'
 export default class TransactionForm extends Component {
     state = {
         transactionForm: {
-            action: 'Withdraw',
+            action: '',
             description: '',
             amount: 0,
         },
@@ -77,6 +77,7 @@ export default class TransactionForm extends Component {
             ? <Form className='transactionForm' onSubmit={ this.addNewTransaction }>
                     <Form.Group>
                         <Form.Control as='select' name='action' onChange={ this.inputChange}>
+                            <option value="" selected disabled hidden>Choose here</option>
                             <option value='Withdraw'>Withdraw</option>
                             <option value='Deposit'>Deposit</option>
                         </Form.Control>
