@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 REACT_APP_DIR = os.path.join(BASE_DIR, 'client')
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(REACT_APP_DIR, 'build/static')
 
 
 AUTH_USER_MODEL = 'accounts.AccountHolder'
@@ -67,7 +67,7 @@ ROOT_URLCONF = 'banking_django.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(REACT_APP_DIR, 'build')],
+        'DIRS': [os.path.join(REACT_APP_DIR, 'build/index.html')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
