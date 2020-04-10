@@ -1,31 +1,30 @@
 import React, { Component } from 'react';
-// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-// import AccountHolderView from './components/AccountHolderView'
-// import LoginPage from './components/LoginPage'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import AccountHolderView from './components/AccountHolderView'
+import LoginPage from './components/LoginPage'
 
 export default class App extends Component {
-  // state = {
-  //   token: {},
-  //   user: {}
-  // }
+  state = {
+    token: {},
+    user: {}
+  }
 
-  // getToken = (response) => {
-  //   this.setState({ token: response.token, user: response.user })
-  // }
+  getToken = (response) => {
+    this.setState({ token: response.token, user: response.user })
+  }
 
   render() {
-  //   const AccountHolderViewComponent = () => (<AccountHolderView token={ this.state.token } user={ this.state.user }/>)
-  //   const LoginPageComponent = () => (<LoginPage  getToken={ this.getToken }/>)
+    const AccountHolderViewComponent = () => (<AccountHolderView token={ this.state.token } user={ this.state.user }/>)
+    const LoginPageComponent = () => (<LoginPage  getToken={ this.getToken }/>)
 
     return (
       <div className="App">
-        <h1> hello world </h1>
-        {/* <Router>
+        <Router>
           <Switch>
             <Route exact path = '/account' render = { AccountHolderViewComponent }/>
             <Route exact path = '/' render = { LoginPageComponent } />
           </Switch>
-        </Router> */}
+        </Router>
       </div>
     );
   }
