@@ -4,5 +4,9 @@
         "build": "cd client && npm install && npm run build && cd ..",
         "postinstall": "npm run build"
     },
-    "dependencies": {}
+    "dependencies": {},
+    "engines": {
+        "node": "13.7.0",
+        "npm": "6.13.6"
+      }
 }
